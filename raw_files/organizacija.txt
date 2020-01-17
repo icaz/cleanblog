@@ -1,0 +1,60 @@
+user
+    - name
+    - e-mail
+    - avatar_pic
+    - address
+    - phone
+    - job
+    - hobby
+    - deatils
+	- moderator
+	- blocked
+
+e-mail_list
+	- e-mail
+	- registered
+    
+posts
+	- tittle
+	- slug
+	- head-pic
+	- body
+	- published
+	- likes
+	- dislikes
+
+category
+    - name
+    - slug
+    
+category_suggestion
+    - name
+
+tag
+    - name
+    - slug
+	
+tag_suggestion
+    - name
+
+	
+comment
+	- text
+    
+manage-users			superadmin, admin
+manage-posts			superadmin, admin, moderator
+manage-categories		superadmin, admin, moderator
+manage-tags				superadmin, admin, moderator
+manage-comments			superadmin, admin, moderator
+publish-posts			superadmin, admin, moderator
+write-posts				superadmin, admin, moderator, blogger
+edit-posts				superadmin, admin, moderator, blogger
+write-comments			superadmin, admin, moderator, blogger, user
+
+user-roles
+    - user
+    - blogger
+    - moderator
+    - admin
+    - superadmin
+
