@@ -12,11 +12,15 @@ class EmailController extends Controller
         $validatedData = $request->validate([
             'email' => 'required|email|unique|max:255',
         ]);
+        $email = new Email;
+        $email->email = $request->email;
+        $email->name = $request->name;
+        $email->notes = $request->notes;
 
-
+        $email->save();
 
         return redirect()->back() ->with('alert', $request->email);
-                // The blog post is valid...
+
     }
 
 

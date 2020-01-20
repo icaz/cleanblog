@@ -101,73 +101,74 @@
     <!-- ***** 
         
          <img class="preloogo" src="img/core-img/logo_big.png" alt="Logo">
-   
         
         Header Area End ***** -->
-        <!-- ********** Hero Area Start ********** -->
-        <div class="hero-area">
 
-            <!-- Hero Slides Area -->
-            <div class="hero-slides owl-carousel">
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg1.jpg')}}');"></div>
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg2.jpg')}}');"></div>
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg3.jpg')}}');"></div>
-            </div>
-    
-            <!-- Hero Post Slide -->
-            <div class="hero-post-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="hero-post-slide">
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="kategorije.php">Dajte predloge za kategorije...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="tagovi.php">Dodajte tagove za blog...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#email2">Prijavite se na e-Mail listu...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="kontakt.php">Kontaktirajte nas sa vašim predlozima...</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-400 bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg1.jpg')}}');">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <h3>Prijavite se na e-Mail listu</h3>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- ********** Hero Area End ********** -->
-    
-    
+    </div>
+    <!-- ********** Hero Area End ********** -->
+
+
+
+ <!-- ************** Content Area Start ************ -->   
+        <section class="contact-area section-padding-50">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Contact Form Area -->
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="contact-form">
+                            <h5>Prijava</h5>
+                            <!-- Contact Form -->
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="group">
+                                            <input type="text" name="name" id="name" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>Uneste svoje ime</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="group">
+                                            <input type="email" name="email" id="email" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>Unesite email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="group">
+                                            <textarea name="notes" id="message" required></textarea>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>Nešto zanimljivo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn world-btn">Prijavi se</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <!-- ************** Content Area End ************ -->   
+
         <!-- ***** Footer Area Start ***** -->
         <footer class="footer-area">
             <div class="container">
