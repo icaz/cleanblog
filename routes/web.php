@@ -28,6 +28,8 @@ Route::get('/e-mail_list', function () {
 })->name('e-mail_list');
 
 Route::post('email', 'EmailController@store')->name('email');
+Route::post('qemail', 'EmailController@qstore')->name('qemail');
+Route::post('contact', 'ContactController@store')->name('contact');
 
 Route::get('/kontakt', function () {
     return view('guest.contact');

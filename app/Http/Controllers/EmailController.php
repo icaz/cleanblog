@@ -10,12 +10,27 @@ class EmailController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|email|unique|max:255',
+            'email' => 'required|email|max:255',
         ]);
         $email = new Email;
         $email->email = $request->email;
         $email->name = $request->name;
         $email->notes = $request->notes;
+
+        $email->save();
+
+        return redirect()->back() ->with('alert', $request->email);
+
+    }
+    public function qstore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email|max:255',
+        ]);
+        $email = new Email;
+        $email->email = $request->email;
+        $email->name = 'quick';
+        $email->notes = 'quick';
 
         $email->save();
 

@@ -40,6 +40,8 @@
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
         <div class="container">
+
+
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
@@ -56,10 +58,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('tagovi') }}">Tagovi</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item @yield('email')">
                                     <a class="nav-link" href="{{ route('e-mail_list') }}">e-Mail lista</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item @yield('kontakt')">
                                     <a class="nav-link" href="{{ route('kontakt') }}">Kontakt</a>
                                 </li>
 
@@ -98,73 +100,14 @@
     <!-- ***** 
         
          <img class="preloogo" src="img/core-img/logo_big.png" alt="Logo">
-   
         
         Header Area End ***** -->
-        <!-- ********** Hero Area Start ********** -->
-        <div class="hero-area">
 
-            <!-- Hero Slides Area -->
-            <div class="hero-slides owl-carousel">
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg1.jpg')}}');"></div>
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg2.jpg')}}');"></div>
-                <!-- Single Slide -->
-                <div class="single-hero-slide bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg3.jpg')}}');"></div>
-            </div>
-    
-            <!-- Hero Post Slide -->
-            <div class="hero-post-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="hero-post-slide">
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="kategorije.php">Dajte predloge za kategorije...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="tagovi.php">Dodajte tagove za blog...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#email2">Prijavite se na e-Mail listu...</a>
-                                    </div>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-slide d-flex align-items-center">
-                                    <div class="post-number">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="kontakt.php">Kontaktirajte nas sa vašim predlozima...</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ********** Hero Area End ********** -->
-    
-    
+@yield('hero')
+
+@yield('content')
+
+
         <!-- ***** Footer Area Start ***** -->
         <footer class="footer-area">
             <div class="container">
@@ -188,7 +131,7 @@
                     <div class="col-12 col-md-4">
                         <div class="footer-single-widget">
                             <h5>Prijavite se</h5>
-                            <form action="{{ route('email') }}" method="post">
+                            <form action="{{ route('qemail') }}" method="post">
                                 @csrf
                                 <input type="email" name="email" id="email" placeholder="Unesite mail" required>
                                 <button type="submit"><i class="fa fa-arrow-right"></i></button>
@@ -199,9 +142,7 @@
             </div>
         </footer>
         <!-- ***** Footer Area End ***** -->
-        <button type="button" class="btn btn-success swalDefaultSuccess">
-            Launch Success Toast
-          </button>   
+    
         <!-- jQuery (Necessary for All JavaScript Plugins) -->
         <script src="{{ asset('user/js/jquery/jquery-2.2.4.min.js')}}"></script>
         <!-- Popper js -->
@@ -214,26 +155,39 @@
         <script src="{{ asset('user/js/active.js')}}"></script>
 
         <script src="{{ asset('admin/plugins/toastr/toastr.min.js')}}"></script>
-        <script src="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 
 
 <script>
-$(function() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: true,
-      timer: 6000
-    });
-
-    $('.swalDefaultSuccess').click(function() {
-      Toast.fire({
-        type: 'success',
-        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-      })
-    });
-});
-
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+        toastr.success("E-mail:<br>" + msg + "<br> uspešno prijavljen!");
+    }
   </script>
+
+    <!-- ***** Header Area Start ***** -->
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+
+            <script>
+                var msg = '{{Session::get('alert')}}';
+                var exist = '{{Session::has('alert')}}';
+                if(exist){
+                    toastr.error("PROBLEM !!! <br>" + msg + "<br> nije prijavljen!");
+                }
+              </script>
+                        
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
     </body>
 </html>
