@@ -20,6 +20,16 @@
             <!-- ********** Hero Area End ********** -->
 @endsection
 @section('kategorije','active')
+
+@section('category-list')
+@foreach ($categories as $category)
+<ul>
+<li>{{$category->name}}.u.nisu.rs</li>
+</ul>
+@endforeach
+
+@endsection
+
 @section('content')
  <!-- ************** Content Area Start ************ -->   
  <section class="contact-area section-padding-50">

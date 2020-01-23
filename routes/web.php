@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('guest.welcome');
 })->name('welcome');
 
-Route::get('/kategorije', function () {
-    return view('guest.category');
-})->name('kategorije');
+Route::get('/kategorije', 'CategoryController@index')->name('kategorije');
 
 Route::get('/tagovi', function () {
     return view('guest.tag');
@@ -31,6 +29,7 @@ Route::post('email', 'EmailController@store')->name('email');
 Route::post('qemail', 'EmailController@qstore')->name('qemail');
 Route::post('contact', 'ContactController@store')->name('contact');
 Route::post('category', 'CategoryController@store')->name('category');
+Route::post('tag', 'TagController@store')->name('tag');
 
 Route::get('/kontakt', function () {
     return view('guest.contact');

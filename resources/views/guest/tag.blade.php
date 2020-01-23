@@ -30,7 +30,8 @@
                 <div class="contact-form">
                     <h5>Predložite tag</h5>
                     <!-- Contact Form -->
-                    <form action="#" method="post">
+                    <form action="{{ route('tag') }}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-12">
                                 <div class="group">

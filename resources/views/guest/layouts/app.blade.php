@@ -52,6 +52,9 @@
                         <!-- Navbar -->
                         <div class="collapse navbar-collapse" id="worldNav">
                             <ul class="navbar-nav ml-auto">
+                                <li class="nav-item @yield('tagovi')">
+                                    <a class="nav-link" href="{{ route('tagovi') }}">Tagovi</a>
+                                </li>
                                 <li class="nav-item @yield('kategorije')">
                                     <a class="nav-link" href="{{ route('kategorije') }}">Kategorije</a>
                                 </li>
@@ -106,6 +109,8 @@
         Header Area End ***** -->
 
 @yield('hero')
+
+@yield('category-list')
 
 @yield('content')
 
