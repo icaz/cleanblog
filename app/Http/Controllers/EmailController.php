@@ -34,7 +34,7 @@ class EmailController extends Controller
 
         $email->save();
 
-        return redirect()->back() ->with('alert', $request->email);
+        return redirect()->back() ->with('alert', 'Email: '.$request->email.' uspešno dodat.');
 
     }
 

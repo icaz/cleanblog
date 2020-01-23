@@ -222,8 +222,8 @@ $(function() {
     const Toast = Swal.mixin({
       toast: true,
       position: 'top',
-      showConfirmButton: true,
-      timer: 6000
+      showConfirmButton: false,
+      timer: 3000
     });
 
     $('.swalDefaultSuccess').click(function() {

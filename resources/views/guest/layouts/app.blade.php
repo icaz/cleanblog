@@ -52,11 +52,8 @@
                         <!-- Navbar -->
                         <div class="collapse navbar-collapse" id="worldNav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
+                                <li class="nav-item @yield('kategorije')">
                                     <a class="nav-link" href="{{ route('kategorije') }}">Kategorije</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tagovi') }}">Tagovi</a>
                                 </li>
                                 <li class="nav-item @yield('email')">
                                     <a class="nav-link" href="{{ route('e-mail_list') }}">e-Mail lista</a>
@@ -70,10 +67,15 @@
                                     <a class="nav-link" href="{{ url('/home') }}">Home</a>
                                 </li>
                                 @else
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+
+                                <button type="button" class="btn btn-outline-danger btn-sm toastrDefaultWarning">
+                                    Login
+                                  </button>
+                                <!-- LOGIN PART
+                                <li class="nav-item disabled">
+                                    <a class="nav-link disabled" href="#" disabled>Login</a>
                                 </li>
-            
+                                -->
                                 @endauth
         
 
@@ -155,14 +157,41 @@
         <script src="{{ asset('user/js/active.js')}}"></script>
 
         <script src="{{ asset('admin/plugins/toastr/toastr.min.js')}}"></script>
+        <script src="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 
 
 <script>
     var msg = '{{Session::get('alert')}}';
     var exist = '{{Session::has('alert')}}';
     if(exist){
-        toastr.success("E-mail:<br>" + msg + "<br> uspešno prijavljen!");
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 5000
+        });
+        Toast.fire({
+        type: 'success',
+        title: msg
+        });
+
     }
+
+$('.toastrDefaultWarning').click(function() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 5000
+        });
+        Toast.fire({
+        type: 'error',
+        title: 'Under construction'
+        });
+
+
+});
+
   </script>
 
     <!-- ***** Header Area Start ***** -->

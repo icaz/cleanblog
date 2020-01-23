@@ -29,7 +29,6 @@
                     <div class="col-12 col-md-10 col-lg-8">
                         <div class="contact-form">
                             <h5>Nešto o vama</h5>
-                            {{ (\Request::route()->getName() == 'kategorije') ? 'active' : '' }}
                             <!-- Contact Form -->
                             <form action="{{ route('contact') }}" method="post">
                                 @csrf

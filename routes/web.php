@@ -30,6 +30,7 @@ Route::get('/e-mail_list', function () {
 Route::post('email', 'EmailController@store')->name('email');
 Route::post('qemail', 'EmailController@qstore')->name('qemail');
 Route::post('contact', 'ContactController@store')->name('contact');
+Route::post('category', 'CategoryController@store')->name('category');
 
 Route::get('/kontakt', function () {
     return view('guest.contact');
