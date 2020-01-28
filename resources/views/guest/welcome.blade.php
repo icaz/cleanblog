@@ -44,7 +44,7 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo.png')}}" alt="Logo"></a>
+                        <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo-s.png')}}" alt="Logo"></a>
                         <!-- Navbar Toggler -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <!-- Navbar -->
@@ -95,12 +95,11 @@
             </div>
         </div>
     </header>
-    <!-- ***** 
+    <!-- ***** Header Area End ***** -->
         
-         <img class="preloogo" src="img/core-img/logo_big.png" alt="Logo">
    
         
-        Header Area End ***** -->
+        
         <!-- ********** Hero Area Start ********** -->
         <div class="hero-area">
 
@@ -120,6 +119,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-post-slide">
+
+
+                                
                                 <!-- Single Slide -->
                                 <div class="single-slide d-flex align-items-center">
                                     <div class="post-number">
@@ -171,7 +173,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="footer-single-widget">
-                            <a href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo.png')}}" alt=""></a>
+                            <a href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo-s.png')}}" alt=""></a>
                             <div class="copywrite-text mt-30">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>

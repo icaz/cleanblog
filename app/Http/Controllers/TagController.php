@@ -7,6 +7,12 @@ use App\Tag;
 
 class TagController extends Controller
 {
+    public function index()
+    {
+        $tags = Tag::all();
+        return view('guest.tag',compact('tags'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

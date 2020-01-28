@@ -17,9 +17,8 @@ Route::get('/', function () {
 
 Route::get('/kategorije', 'CategoryController@index')->name('kategorije');
 
-Route::get('/tagovi', function () {
-    return view('guest.tag');
-})->name('tagovi');
+Route::get('/tagovi', 'TagController@index')->name('tagovi');
+
 
 Route::get('/e-mail_list', function () {
     return view('guest.e-mail');

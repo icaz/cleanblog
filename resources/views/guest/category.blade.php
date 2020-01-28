@@ -3,15 +3,15 @@
 @section('hero')
 
         <!-- ********** Hero Area Start ********** -->
-        <div class="hero-area height-400 bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg3.jpg')}}');">
+        <div class="hero-area height-500 bg-img background-overlay" style="background-image: url('{{ asset('user/img/blog-img/bg3.jpg')}}');">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">
                         <div class="single-blog-title text-center">
                             <!-- Catagory -->
+                            <img class="preloogo" src="{{ asset('user/img/core-img/logo-big.png')}}" alt="Logo">
                             <h3>Dajte predlog za kategorije</h3>
-                            <br>
-                            <h3>u formi: <i style="color:gold">kategorija</i>.u.nisu.rs</h3>
+
                         </div>
                     </div>
                 </div>
@@ -21,14 +21,6 @@
 @endsection
 @section('kategorije','active')
 
-@section('category-list')
-@foreach ($categories as $category)
-<ul>
-<li>{{$category->name}}.u.nisu.rs</li>
-</ul>
-@endforeach
-
-@endsection
 
 @section('content')
  <!-- ************** Content Area Start ************ -->   
@@ -38,7 +30,7 @@
             <!-- Contact Form Area -->
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="contact-form">
-                    <h5>Predložite kategoriju</h5>
+                    <h5 style="text-align:center"><i class="fa fa-list" aria-hidden="true"></i> Predložite kategoriju</h5>
                     <!-- Contact Form -->
                     <form action="{{ route('category') }}" method="post">
                         @csrf
@@ -49,13 +41,16 @@
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>Ime kategorije...</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
                                 <button type="submit" class="btn world-btn">Pošalji</button>
+                                </div>
                             </div>
                         </div>
                     </form>
+                    <h5 style="text-align:center">Spisak predloženih kategorija</h5>
+                        @foreach ($categories as $category)
+                        <i class="fa fa-list" aria-hidden="true"></i> <small style="color:black">{{$category->name}}</small>&nbsp;&nbsp;&nbsp;
+                        @endforeach
+                    
                 </div>
             </div>
         </div>

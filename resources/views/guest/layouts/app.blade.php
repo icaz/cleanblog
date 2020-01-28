@@ -46,23 +46,23 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo.png')}}" alt="Logo"></a>
+                        <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo-s2.png')}}" alt="Logo"></a>
                         <!-- Navbar Toggler -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <!-- Navbar -->
                         <div class="collapse navbar-collapse" id="worldNav">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item @yield('tagovi')">
-                                    <a class="nav-link" href="{{ route('tagovi') }}">Tagovi</a>
+                                    <a class="nav-link" href="{{ route('tagovi') }}"><i class="fa fa-tags" aria-hidden="true"></i> Tagovi</a>
                                 </li>
                                 <li class="nav-item @yield('kategorije')">
-                                    <a class="nav-link" href="{{ route('kategorije') }}">Kategorije</a>
+                                    <a class="nav-link" href="{{ route('kategorije') }}"><i class="fa fa-list" aria-hidden="true"></i> Kategorije</a>
                                 </li>
                                 <li class="nav-item @yield('email')">
-                                    <a class="nav-link" href="{{ route('e-mail_list') }}">e-Mail lista</a>
+                                    <a class="nav-link" href="{{ route('e-mail_list') }}"><i class="fa fa-envelope" aria-hidden="true"></i> e-Mail lista</a>
                                 </li>
                                 <li class="nav-item @yield('kontakt')">
-                                    <a class="nav-link" href="{{ route('kontakt') }}">Kontakt</a>
+                                    <a class="nav-link" href="{{ route('kontakt') }}"><i class="fa fa-address-card" aria-hidden="true"></i> Kontakt</a>
                                 </li>
 
                                 @auth
@@ -110,8 +110,6 @@
 
 @yield('hero')
 
-@yield('category-list')
-
 @yield('content')
 
 
@@ -121,7 +119,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="footer-single-widget">
-                            <a href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo.png')}}" alt=""></a>
+                            <a href="{{ route('welcome') }}"><img src="{{ asset('user/img/core-img/logo-s.png')}}" alt=""></a>
                             <div class="copywrite-text mt-30">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
