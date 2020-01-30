@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('guest.welcome');
 })->name('welcome');
+Route::get('/dash', function () {
+    return view('admin.dashboard');
+})->name('dashboard');
 
 Route::get('/kategorije', 'CategoryController@index')->name('kategorije');
 
@@ -33,7 +36,6 @@ Route::post('tag', 'TagController@store')->name('tag');
 Route::get('/kontakt', function () {
     return view('guest.contact');
 })->name('kontakt');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

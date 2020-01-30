@@ -19,7 +19,7 @@ class EmailController extends Controller
 
         $email->save();
 
-        return redirect()->back() ->with('alert', $request->email);
+        return redirect()->back() ->with('alert', $request->name.' je uspešno dodat.');
 
     }
     public function qstore(Request $request)
