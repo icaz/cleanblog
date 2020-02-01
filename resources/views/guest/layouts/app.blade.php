@@ -53,7 +53,7 @@
                         <div class="collapse navbar-collapse" id="worldNav">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item @yield('tagovi')">
-                                    <a class="nav-link" href="{{ route('tagovi') }}"><i class="fa fa-tags" aria-hidden="true"></i> Tagovi</a>
+                                    <a class="nav-link" href="{{ route('tagovi') }}"><i class="fas fa-hashtag" aria-hidden="true"></i> Tagovi</a>
                                 </li>
                                 <li class="nav-item @yield('kategorije')">
                                     <a class="nav-link" href="{{ route('kategorije') }}"><i class="fa fa-list" aria-hidden="true"></i> Kategorije</a>

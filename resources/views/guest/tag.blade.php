@@ -31,7 +31,7 @@
 <h6>
 @foreach ($tags as $tag)
 
-<i class="fa fa-tags" aria-hidden="true"></i> {{$tag->name}}
+<i class="fas fa-hashtag" aria-hidden="true"></i> {{$tag->name}}
 @endforeach
 </h6>
 
@@ -55,7 +55,7 @@
             <div class="col-12 col-md-10 col-lg-8">
 
                 <div class="contact-form">
-                    <h5 style="text-align:center"><i class="fa fa-tag" aria-hidden="true"></i> Predložite tag</h5>
+                    <h5 style="text-align:center"><i class="fas fa-hashtag" aria-hidden="true"></i> Predložite tag</h5>
                     <!-- Contact Form -->
                     <form action="{{ route('tag') }}" method="post">
                         @csrf
@@ -73,7 +73,7 @@
                     </form>
                     <h5 style="text-align:center">Spisak predloženih tagova</h5>
                         @foreach ($tags as $tag)
-                        <i class="fa fa-tag" aria-hidden="true"></i> <small style="color:black">{{$tag->name}}</small>&nbsp;&nbsp;&nbsp;
+                        <i class="fas fa-hashtag" aria-hidden="true"></i> <small style="color:black">{{$tag->name}}</small>&nbsp;&nbsp;&nbsp;
                         @endforeach
                 </div>
             </div>

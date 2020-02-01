@@ -17,6 +17,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.css')}}">
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -29,26 +34,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{ route('dashboard') }}" class="nav-link {{ Request::getPathInfo() === '/dash' ? 'active' : ''}}">Početna</a>
+        <a href="{{ route('dashboard') }}" class="nav-link">Početna</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('kontakti') }}" class="nav-link {{Request::is('/kontakti') ? 'active' : ''}}">Kontakti</a>
+        <a href="#" class="nav-link">Kontakti</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM
-*****************************************************************************
-*****************************************************************************
-*****************************************************************************
-Request::path() === '/' ? 'current_page_item' : '' 
-*****************************************************************************
-
-Request::is('dash*') ? 'active' : ''
-
-*****************************************************************************
-*****************************************************************************
-*****************************************************************************
-*****************************************************************************
 *****************************************************************************
 
     <form class="form-inline ml-3">
@@ -105,7 +98,7 @@ Request::is('dash*') ? 'active' : ''
                <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-sitemap text-danger"></i>
-                  <p>Kategorije</p>
+                  <p class="text">Kategorije</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -120,14 +113,31 @@ Request::is('dash*') ? 'active' : ''
                   <p>Korisnici</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
+              <li class="nav-item has-treeview menu-open">
+                <a href="#" class="nav-link active">
                   <i class="nav-icon fas fa-blog"></i>
-                  <p>Blog</p>
+                  <p>
+                    Blog
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-danger right">6</span>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fas fa-plus-square nav-icon"></i>
+                      <p>Novi blog</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="fas fa-list-ul nav-icon"></i>
+                      <p>Pregled</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-    
-        </ul>
+            </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -135,92 +145,83 @@ Request::is('dash*') ? 'active' : ''
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+
+
+  <!-- /.content-wrapper -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Info</h1>
-          </div><!-- /.col -->
+            <h1>Novi tekst (blog)</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Početna</a></li>
-              <li class="breadcrumb-item active">Info</li>
+                <li class="breadcrumb-item"><a href="#">Početna</a></li>
+                <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                <li class="breadcrumb-item active">Novi tekst</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <h3 class="card-title">
+                Unesi novi blog
+              </h3>
+              <!-- tools box -->
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool btn-sm" data-card-widget="remove" data-toggle="tooltip"
+                        title="Remove">
+                  <i class="fas fa-times"></i></button>
               </div>
+              <!-- /. tools -->
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Naslov</label>
+                    <input type="text" class="form-control" placeholder="Unesi naslov...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Unesi sliku zaglavlja</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Izaberi sliku</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+              <div class="mb-3">
+                <textarea class="textarea" placeholder="Place some text here"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
               </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
 
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
             </div>
           </div>
-          <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+        <!-- /.col-->
+      </div>
+      <!-- ./row -->
+    </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -251,5 +252,15 @@ Request::is('dash*') ? 'active' : ''
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
+
+<!-- Summernote -->
+<script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
+
 </body>
 </html>

@@ -30,7 +30,10 @@
                 <h5 class="card-title">Spisak tagova</h5>
 
                 <p class="card-text text-danger">
-nesto drugo                </p>
+                  @foreach ($tags as $tag)
+                  <i class="fas fa-hashtag"></i>{{$tag->name}},&nbsp;&nbsp;
+                  @endforeach
+                </p>
 
                 <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a>
