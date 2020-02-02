@@ -106,7 +106,7 @@ Request::is('dash*') ? 'active' : ''
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('category.index') }}" class="nav-link">
                   <i class="nav-icon fas fa-sitemap text-danger"></i>
                   <p>Kategorije</p>
                 </a>
@@ -187,5 +187,7 @@ Request::is('dash*') ? 'active' : ''
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
+<!-- Custom js -->
+@yield('js')
 </body>
 </html>

@@ -48,7 +48,7 @@
                     </form>
                     <h5 style="text-align:center">Spisak predloženih kategorija</h5>
                         @foreach ($categories as $category)
-                        <i class="fa fa-list" aria-hidden="true"></i> <small style="color:black">{{$category->name}}</small>&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-list" aria-hidden="true"></i> <small style="color:black">{{$category->name}}</small>&nbsp;&nbsp;&nbsp;<br>
                         @endforeach
                     
                 </div>

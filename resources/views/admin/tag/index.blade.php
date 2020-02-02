@@ -88,5 +88,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-
+  @endsection
+@section('js')
+    
 @endsection
