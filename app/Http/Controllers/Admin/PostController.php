@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -15,8 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return view('admin.post.index',compact('post'));
+        $posts = Post::all();
+        return view('admin.post.index',compact('posts'));
     }
 
     /**
@@ -24,9 +26,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create ()
     {
-        return view('admin.post.create');
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('admin.post.create',compact('tags', 'categories'));
     }
 
     /**
@@ -37,7 +41,37 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'subtitle'=>'required|min:3',
+            'slug' => 'required',
+            'body' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->image->store('public');
+        } 
+        else
+        {
+        $imageName='home-bg.jpg'; 
+        }
+        
+
+        $post = new Post;
+        $post->image = $imageName;
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->slug = $request->slug;
+        $post->status = $request->status;
+        $post->body = $request->body;
+        $post->save();
+        $post->tags()->sync($request->tags);
+        $post->categories()->sync($request->categories);
+
+
+
+        return redirect(route('post.index'));
+
     }
 
     /**
@@ -59,7 +93,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $post=Post::with('tags','categories')->where('id',$id)->first();
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('admin.post.edit',compact('tags', 'categories', 'post'));
     }
 
     /**
@@ -71,7 +109,34 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'subtitle'=>'required|min:3',
+            'body'=>'required',
+            'slug'=>'required'
+        ]);
+
+
+
+        $post =Post::find($id);
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->image->store('public');
+            $post->image = $imageName;
+        }
+        
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->slug = $request->slug;
+        $post->status = $request->status;
+        $post->body = $request->body;
+        $post->save();
+        $post->tags()->sync($request->tags);
+        $post->categories()->sync($request->categories);
+
+
+        return redirect(route('post.index'));
+
     }
 
     /**
@@ -82,6 +147,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::where('id',$id)->delete();
+        return redirect()->back();
     }
 }

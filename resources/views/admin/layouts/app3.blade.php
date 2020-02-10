@@ -110,28 +110,66 @@ Request::is('dash*') ? 'active' : ''
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="{{ route('post.index') }}" class="nav-link {{Request::is('dashboard/post*') ? 'active' : ''}}">
-                  <i class="nav-icon fas fa-blog"></i>
-                  <p>Blog</p>
-                </a>
-              </li>
-               <li class="nav-item">
                 <a href="{{ route('category.index') }}" class="nav-link {{Request::is('dashboard/category*') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-sitemap text-danger"></i>
                   <p>Kategorije</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item has-treeview {{Request::is('dashboard/tag*') ? 'menu-open' : ''}}">
                 <a href="{{ route('tag.index') }}" class="nav-link {{Request::is('dashboard/tag*') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-hashtag text-warning"></i>
-                  <p>Tagovi</p>
+                  <p>Tagovi
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('tag.index') }}" class="nav-link {{Request::is('dashboard/tag') ? 'active' : ''}}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Prikazi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('tag.create') }}" class="nav-link {{Request::is('dashboard/tag/create') ? 'active' : ''}}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Novi Tag</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index3.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard v3</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-users text-info"></i>
                   <p>Korisnici</p>
                 </a>
+              </li>
+              <li class="nav-item has-treeview {{Request::is('dashboard/post*') ? 'menu-open' : ''}}">
+                <a href="{{ route('post.index') }}" class="nav-link {{Request::is('dashboard/post*') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-blog"></i>
+                  <p>Blog
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('post.index') }}" class="nav-link {{Request::is('dashboard/post') ? 'active' : ''}}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Lista postova</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('post.create') }}" class="nav-link {{Request::is('dashboard/post/create') ? 'active' : ''}}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Novi post</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
         </ul>
       </nav>

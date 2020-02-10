@@ -9,9 +9,6 @@ Route::get('/dashboard', function () {
 Route::get('/kontakti', function () {
     return view('admin.kontakti');
 })->name('kontakti');
-Route::get('/kontakti2', function () {
-    return view('admin.kontakti');
-})->name('kontakti2');
 Route::get('/e-mail_list', function () {
     return view('guest.e-mail');
 })->name('e-mail_list');
