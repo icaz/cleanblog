@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'u.nisu.rs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,9 +56,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@u.nisu.rs'),
+        'name' => env('MAIL_FROM_NAME', 'https://u.nisu.rs'),
     ],
+    'reply_to' => ['address' => 'info@u.nisu.rs', 'name' => 'u.nisu.rs'],
 
     /*
     |--------------------------------------------------------------------------
