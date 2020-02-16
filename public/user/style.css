@@ -145,6 +145,10 @@ ol {
 img {
   height: auto;
   max-width: 100%; }
+  @media only screen and (max-width: 991px) {
+    img {
+      height: 40px;
+      } }
 
 .mt-15 {
   margin-top: 15px; }
