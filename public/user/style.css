@@ -146,10 +146,15 @@ img {
   height: auto;
   max-width: 100%; }
   @media only screen and (max-width: 991px) {
-    img {
+    img.log {
       height: 40px;
       } }
-
+      @media only screen and (max-width: 600px) {
+        img.log {
+          height: 40px;
+          max-width: 250px;
+          } }
+    
 .mt-15 {
   margin-top: 15px; }
 
