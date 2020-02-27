@@ -26,14 +26,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{ route('dashboard') }}" class="nav-link {{Request::is('dashboard') ? 'active' : ''}}">Početna</a>
+        
+
+      <a href="{{ route('welcome') }}" class="nav-link">Nazad na sajt!</a>
       </li>
 
 
@@ -44,6 +46,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
     </ul>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="breadcrumb-item"><a href="#">Početna</a></li>
+        <li class="breadcrumb-item active">Info</li>
+</ul>
+
 
     <!-- SEARCH FORM
 *****************************************************************************
@@ -128,11 +137,12 @@ Request::is('dash*') ? 'active' : ''
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('user.index') }}" class="nav-link {{Request::is('dashboard/user*') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-users text-info"></i>
                   <p>Korisnici</p>
                 </a>
               </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

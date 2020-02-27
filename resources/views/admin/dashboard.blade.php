@@ -9,12 +9,6 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Info</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Početna</a></li>
-              <li class="breadcrumb-item active">Info</li>
-            </ol>
-          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -31,6 +25,14 @@
 
                 <p class="card-text text-danger">
 nesto drugo                </p>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+  @csrf
+</form>
+<a class="dropdown-item" href="{{ route('logout') }}"
+onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+ {{ __('Logout') }}
+</a>
 
                 <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a>

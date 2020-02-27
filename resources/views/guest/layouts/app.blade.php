@@ -70,12 +70,17 @@
                                     <a class="nav-link" href="{{ url('/home') }}">Home</a>
                                 </li>
                                 @else
+                                <li>
+                                    <a class="btn btn-outline-danger btn-sm" href="{{ route('dashboard') }}"> Login</a>
+                                </li>
 
+                                <!-- LOGIN PART
                                 <button type="button" class="btn btn-outline-danger btn-sm toastrDefaultWarning">
                                     Login
                                   </button>
-                                <!-- LOGIN PART
-                                <li class="nav-item disabled">
+                                
+                                
+                                    <li class="nav-item disabled">
                                     <a class="nav-link disabled" href="#" disabled>Login</a>
                                 </li>
                                 -->

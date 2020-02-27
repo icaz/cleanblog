@@ -112,5 +112,5 @@
             </div>
         </div>
         <!-- ********** Hero Area End ********** -->
-    
-        @endsection
+              
+  @endsection

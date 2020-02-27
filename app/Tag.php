@@ -27,6 +27,7 @@ class Tag extends Model
         ];
     }    
     
+    
     public function posts()
     {
         return $this->belongsToMany('App\Post', 'category_posts')->orderBy('created_at','DESC')->paginate(5);

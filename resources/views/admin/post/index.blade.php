@@ -1,6 +1,9 @@
 @extends('admin.layouts.app')
 @section('style')
-    
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- DataTables -->
+      <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
 
@@ -12,14 +15,20 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Info</h1>
-          </div><!-- /.col -->
+            <h1>Spisak postova</h1>
+          </div>
+          
+<!-- BreadCrumbs 
+
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Početna</a></li>
               <li class="breadcrumb-item active">Info</li>
             </ol>
-          </div><!-- /.col -->
+          </div>
+-->          
+          
+          <!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -28,62 +37,55 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+        <!-- DataTables -->
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-12">
             <div class="card">
+              <!-- /.card-header -->
               <div class="card-body">
-                <h5 class="card-title">Spisak tagova</h5>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Naslov</th>
+                    <th>Kategorije</th>
+                    <th>Tagovi</th>
+                    <th>Autor</th>
+                    <th>---</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Trident</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                    <td>X</td>
+                  </tr>
 
-                <p class="card-text text-danger">
-nesto drugo                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Naslov</th>
+                    <th>Kategorije</th>
+                    <th>Tagovi</th>
+                    <th>Autor</th>
+                    <th>---</th>
+                  </tr>
+                  </tfoot>
+                </table>
               </div>
+              <!-- /.card-body -->
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
+            <!-- /.card -->
+  
           </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
+          <!-- /.col -->
         </div>
-        <!-- /.row -->
+          <!-- /.DataTables -->
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
@@ -93,5 +95,24 @@ nesto drugo                </p>
 
 @endsection
 @section('js')
-    
+
+
+
+    <!-- DataTables -->
+    <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true,
+        });
+      });
+    </script>
+        
 @endsection
