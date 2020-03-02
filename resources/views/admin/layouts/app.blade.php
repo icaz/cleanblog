@@ -47,11 +47,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     </ul>
 
+    @yield('breadcrumb')
 
-    <ul class="navbar-nav ml-auto">
-        <li class="breadcrumb-item"><a href="#">Početna</a></li>
-        <li class="breadcrumb-item active">Info</li>
-</ul>
 
 
     <!-- SEARCH FORM

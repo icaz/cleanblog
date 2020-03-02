@@ -6,6 +6,12 @@
       <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
+@section('breadcrumb')
+<ul class="navbar-nav ml-auto">
+  <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Početna</a></li>
+  <li class="breadcrumb-item active">Kategorije</li>
+</ul>
+@endsection
 
 @section('content')
           <!-- Content Wrapper. Contains page content -->
@@ -40,14 +46,14 @@
         <!-- DataTables -->
         <div class="row">
           <div class="col-12">
-            <div class="card text-white bg-dark text-center">
+            <div class="card text-white bg-dark">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-dark table-hover table-sm" style="width:100%">
+                <table id="example2" class="table table-bordered table-dark table-hover table-sm text-center" style="width:100%">
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Tag</th>
+                    <th>Kategorija</th>
                     <th>Slug</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -79,7 +85,7 @@
                   <tfoot>
                     <tr>
                       <th>ID</th>
-                      <th>Tag</th>
+                      <th>Kategorija</th>
                       <th>Slug</th>
                       <th>Edit</th>
                       <th>Delete</th>
@@ -150,11 +156,10 @@
     <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
     <script>
       $(function () {
-        $("#example1").DataTable();
         $('#example2').DataTable({
           "paging": true,
           "pagingType": "simple_numbers",
-          "lengthChange": false,
+          "lengthChange": true,
           "searching": true,
           "ordering": true,
           "info": true,

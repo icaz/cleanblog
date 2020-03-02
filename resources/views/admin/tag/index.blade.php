@@ -6,11 +6,17 @@
       <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
+@section('breadcrumb')
+<ul class="navbar-nav ml-auto">
+  <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Početna</a></li>
+  <li class="breadcrumb-item active">Tagovi</li>
+</ul>
+@endsection
 
 @section('content')
           <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  <div class="content-wrapper text-white bg-dark ">
+            <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -40,10 +46,10 @@
         <!-- DataTables -->
         <div class="row">
           <div class="col-12">
-            <div class="card">
+            <div class="card text-white bg-dark">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-dark table-hover table-sm text-center" style="width:100%">
                   <thead>
                   <tr>
                     <th>ID</th>
@@ -100,6 +106,40 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <!-- DataTables -->
+        <div class="row">
+          <div class="col-12">
+            
+              <!-- /.card-header -->
+              
+                
+                <div class="card text-white bg-dark card-success card-outline">
+                  <div class="card-header">
+                    <h5 class="m-0">Dodajte novi tag</h5>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Kategorija...">
+                      <div class="input-group-append">
+                        <button class="btn btn-success" type="button">Dodaj novi tag</button>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div>
+                    
+              </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+    
   </div>
   <!-- /.content-wrapper -->
 
@@ -113,11 +153,20 @@
   $(function () {
     $('#example2').DataTable({
       "paging": true,
+      "pagingType": "simple_numbers",
       "lengthChange": true,
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
+      "language": {
+        "paginate": {
+          "first":      "<<",
+          "last":       ">>",
+          "next":       ">",
+          "previous":   "<"
+        },
+      }
     });
   });
 </script>
